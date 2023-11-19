@@ -14,5 +14,7 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-empty": "off", //块语句中的内容不能为空
+    'prettier/prettier': "off",
   },
 };
