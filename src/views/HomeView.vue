@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <el-row>
-      <el-button @click="testApi" round>測試API</el-button>
+      <el-button @click="getDemoMsg" round>測試API</el-button>
       <el-button @click="test" round>測試MIXIN</el-button>
     </el-row>
   </div>
@@ -20,9 +20,9 @@ export default {
     HelloWorld,
   },
   methods: {
-    testApi: function () {
+    getDemoMsg: function () {
       this.$axios
-        .get("/test")
+        .get("/demo")
         .then((res) => alert(res.data.msg))
         .catch((err) => alert(err));
     },

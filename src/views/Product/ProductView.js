@@ -1,4 +1,7 @@
 export default ({
+  mounted() {
+    this.test();
+  },
   data(){
     return {
       productData:[
@@ -23,6 +26,11 @@ export default ({
           price:'$5000',
         },
       ]
+    }
+  },
+  methods: {
+    test: function() {
+      console.log('test');
     }
   }
 })

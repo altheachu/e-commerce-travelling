@@ -4,7 +4,7 @@
       <el-col
         :span="4"
         v-for="(o, index) in productData"
-        :key="o"
+        :key="o.name"
         :offset="index > 0 ? 1 : 0">
         <el-card :body-style="{ padding: '0px' }">
           <img 
