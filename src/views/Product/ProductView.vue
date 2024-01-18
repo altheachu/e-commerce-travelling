@@ -4,24 +4,26 @@
       <el-col
         :span="4"
         v-for="(o, index) in productData"
-        :key="o.name"
+        :key="o.id"
         :offset="index > 0 ? 1 : 0">
-        <el-card :body-style="{ padding: '0px' }">
-          <img 
-          src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" 
-          class="image"/>
+        <div style="position:relative;">
+          <div style="background-color:red; position: absolute; width:40%; height:10%;"> {{o.stockQty}} in Stock</div>
+          <el-card :body-style="{ padding: '0px' }">
+            <img 
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" 
+            class="image"/>
           <div style="padding: 14px">
             <div class="pdt-info">
               <div>{{ o.type }}</div>
-              <div>{{ o.price }}</div>
+              <div>${{ o.price }}</div>
             </div>
             <span class="clearfix">{{ o.name }}</span>
             <div class="bottom clearfix">
-              <time class="time">2022-10-19</time>
-              <el-button type="text" class="button">操作按钮</el-button>
+              <el-button type="primary" class="button" round>Buy Now</el-button>
             </div>
           </div>
-        </el-card>
+          </el-card>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -48,8 +50,8 @@ export default ({
   }
 
   .button {
-    padding: 0;
-    float: right;
+    padding: 10px;
+    float: middle;
   }
 
   .image {
