@@ -3,22 +3,23 @@ export default ({
     this.getProducts();
   },
   mounted() {
-    this.test();
   },
   data(){
     return {
       productData:[],
+      enterPage: false,
     }
   },
   methods: {
-    test: function() {
-      console.log('test');
-    },
     getProducts: function() {
       this.$axios
         .get("/product")
         .then((res)=>{this.productData = res.data})
         .catch((err) => alert(err));
-    }
+    },
+    showOrderPage: function(data) {
+      console.log('showOrderPage', data);
+      this.enterPage = true;
+    },
   }
 })
