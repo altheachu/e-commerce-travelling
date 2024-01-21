@@ -1,7 +1,7 @@
 <template>
   <div>
     <ProductItem v-if="!enterPage" @showOrderPage="showOrderPage"/>
-    <PurchaseItem v-if="enterPage"/>
+    <PurchaseItem v-if="enterPage" :back-page.sync="enterPage"/>
   </div>
 </template>
 
