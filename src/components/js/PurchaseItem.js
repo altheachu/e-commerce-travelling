@@ -1,24 +1,25 @@
 export default ({
-  props: {
-    backPage: Boolean,
-  },
   data(){
     return {
+      pdtInfo: {},
     }
   },
+  props:{
+    backPage: Boolean,
+  },
   computed: {
-    showPage: {
+    enterPage: {
       get() {
-        return this.backPage; 
+        return this.backPage;
       },
       set(val) {
         this.$emit('update:backPage', val);
       }
-    },
+    }
   },
   methods: {
-    test() {
-      this.showPage = false;
-    }
+    goBack: function() {
+      this.enterPage = false;
+    },
   }
 })

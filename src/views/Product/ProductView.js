@@ -18,8 +18,12 @@ export default ({
         .catch((err) => alert(err));
     },
     showOrderPage: function(data) {
-      console.log('showOrderPage', data);
       this.enterPage = true;
+      console.log(data);
+      this.$nextTick(()=>{
+        console.log(this.$refs.purchaseItem);
+        this.$refs.purchaseItem.pdtInfo = data;
+      })
     },
   }
 })

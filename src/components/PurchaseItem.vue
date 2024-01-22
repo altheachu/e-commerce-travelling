@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-button @click="test">back</el-button>
+    <div>{{ pdtInfo }}</div>
+    <el-button @click="goBack">Go Back</el-button>
   </div>
 </template>
 
