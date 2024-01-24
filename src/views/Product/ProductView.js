@@ -21,7 +21,6 @@ export default ({
       this.enterPage = true;
       console.log(data);
       this.$nextTick(()=>{
-        console.log(this.$refs.purchaseItem);
         this.$refs.purchaseItem.pdtInfo = data;
       })
     },
