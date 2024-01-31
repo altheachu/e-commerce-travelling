@@ -1,3 +1,5 @@
+import { priceFormat } from './Common.js';
+
 export default ({
   created() {
     this.getProducts();
@@ -14,12 +16,17 @@ export default ({
       this.$axios
         .get("/product")
         .then((res)=>{
-          this.productData = res.data
+          let newData = [];
+          res.data.forEach((ele) => {
+            ele.price = priceFormat(ele.price);
+            newData.push(ele);
+          });
+          this.productData = newData;
         })
         .catch((err) => alert(err));
     },
     showOrderPage: function(data) {
       this.$emit('showOrderPage', data);
-    }
+    },
   }
 })

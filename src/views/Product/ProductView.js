@@ -19,7 +19,6 @@ export default ({
     },
     showOrderPage: function(data) {
       this.enterPage = true;
-      console.log(data);
       this.$nextTick(()=>{
         this.$refs.purchaseItem.pdtInfo = data;
       })

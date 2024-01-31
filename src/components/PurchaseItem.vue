@@ -27,6 +27,22 @@
             </span>
             <div class="word">{{ pdtInfo.stockQty }}</div>
           </el-form-item>
+          <el-form-item>
+            <span slot="label">
+              <span class="pdt_label">Order Quantity</span>
+            </span>
+            <div>
+              <el-input-number v-model="qty" :min="1" label="描述文字"></el-input-number>
+            </div>
+          </el-form-item>
+          <el-form-item>
+            <span slot="label">
+              <span class="pdt_label">Order Amount</span>
+            </span>
+            <div>
+              <div class="word">{{ orderAmount }}</div>
+            </div>
+          </el-form-item>
         </el-form>
       </div>
     </div>
