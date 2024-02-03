@@ -5,6 +5,13 @@ export default ({
     return {
       qty: 1,
       pdtInfo: {},
+      pdtLabel: {
+        name: 'Tour Name',
+        price: 'Price',
+        type: 'Type',
+        stockQty: 'Quota of People',
+        orderAmount: 'Order Amount',
+      },
       customerInfo: {
         name: undefined,
         phone: undefined,
@@ -30,7 +37,7 @@ export default ({
     this.getDefaultAmt();
   },
   computed: {
-    enterPage: {
+    isEnterPurchase: {
       get() {
         return this.backPage;
       },
@@ -46,36 +53,36 @@ export default ({
   },
   methods: {
     goBack: function() {
-      this.enterPage = false;
+      this.isEnterPurchase = false;
     },
     getDefaultAmt: function() {
       console.log('test', this.qty, this.pdtInfo)
       
     },
     buy: function() {
-      this.$axios
-        .post("/customer/add", this.customerInfo)
-        .then((res)=>{
-          console.log(res.data);
-          let orderInfo = {
-            customerId: res.data,
-            orderDate: new Date(),
-            orderAmt: this.orderAmount,
-            orderDetailList: [
-              {
-                productId: this.pdtInfo.id,
-                orderQty: this.qty
-              }
-            ]
-          };
-          this.$axios
-          .post("/order/add", orderInfo)
-            .then((res)=>{
-              console.log(res);
-            })
-            .catch((err)=> alert('fail to convey order info:' + err))
-        })
-        .catch((err) => alert('fail to record customer info:' + err));
+      // this.$axios
+      //   .post("/customer/add", this.customerInfo)
+      //   .then((res)=>{
+      //     let orderInfo = {
+      //       customerId: res.data,
+      //       orderDate: new Date(),
+      //       orderAmt: this.orderAmount,
+      //       orderDetailList: [
+      //         {
+      //           productId: this.pdtInfo.id,
+      //           orderQty: this.qty
+      //         }
+      //       ]
+      //     };
+      //     this.$axios
+      //     .post("/order/add", orderInfo)
+      //       .then((res)=>{
+      //         console.log(res);
+      //       })
+      //       .catch((err)=> alert('fail to convey order info:' + err))
+      //   })
+      //   .catch((err) => alert('fail to record customer info:' + err));
+      this.$emit('showSuccessPage', true);
     },
   }
 })

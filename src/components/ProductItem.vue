@@ -12,7 +12,7 @@
             <div>Stock</div>
           </div>
           <el-card :body-style="{ padding: '0px' }">
-            <img :src="require('@/img/' + o.pdtUrl)" class="image" :alt="o.pdtAlt" aria-hidden="true">
+            <img :src="require('@/assets/' + o.pdtUrl)" class="image" :alt="o.pdtAlt" aria-hidden="true">
           <div style="padding: 14px">
             <div class="pdt-info">
               <div>{{ o.type }}</div>

@@ -7,7 +7,9 @@ export default ({
   data(){
     return {
       productData:[],
-      enterPage: false,
+      isShowProduct: true,
+      isEnterPurchase: false,
+      isShowOrder: false,
     }
   },
   methods: {
@@ -18,10 +20,15 @@ export default ({
         .catch((err) => alert(err));
     },
     showOrderPage: function(data) {
-      this.enterPage = true;
+      this.isEnterPurchase = true;
       this.$nextTick(()=>{
         this.$refs.purchaseItem.pdtInfo = data;
       })
     },
+    showSuccessPage: function(isShow) {
+      this.isShowOrder = isShow;
+      this.isEnterPurchase = false;
+      this.isShowProduct = false;
+    }
   }
 })

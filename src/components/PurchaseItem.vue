@@ -5,25 +5,25 @@
         <el-form ref="form" :model="pdtInfo" label-width="160px" label-position="left">
           <el-form-item>
             <span slot="label">
-              <span class="pdt_label">Tour Name</span>
+              <span class="pdt_label">{{ pdtLabel.name }}</span>
             </span> 
             <div class="word">{{ pdtInfo.name }}</div>
           </el-form-item>
           <el-form-item>
             <span slot="label">
-              <span class="pdt_label">Price</span>
+              <span class="pdt_label">{{ pdtLabel.price }}</span>
             </span>
             <div class="word">{{ pdtInfo.price }}</div>
           </el-form-item>
           <el-form-item>
             <span slot="label">
-              <span class="pdt_label">Type</span>
+              <span class="pdt_label">{{ pdtLabel.type }}</span>
             </span>
             <div class="word">{{ pdtInfo.type }}</div>
           </el-form-item>
           <el-form-item>
             <span slot="label">
-              <span class="pdt_label">Quota of People</span>
+              <span class="pdt_label">{{ pdtLabel.stockQty }}</span>
             </span>
             <div class="word">{{ pdtInfo.stockQty }}</div>
           </el-form-item>
@@ -37,7 +37,7 @@
           </el-form-item>
           <el-form-item>
             <span slot="label">
-              <span class="pdt_label">Order Amount</span>
+              <span class="pdt_label">{{ pdtLabel.orderAmount }}</span>
             </span>
             <div>
               <div class="word">{{ orderAmount }}</div>
