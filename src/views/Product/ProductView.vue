@@ -2,7 +2,7 @@
   <div>
     <ProductItem v-if="!isEnterPurchase && isShowProduct" @showOrderPage="showOrderPage"/>
     <PurchaseItem ref="purchaseItem" v-if="isEnterPurchase" :back-page.sync="isEnterPurchase" @showSuccessPage="showSuccessPage" />
-    <OrderSuccess v-if="isShowOrder"/>
+    <OrderSuccess v-if="isShowOrder" @backToHome="backToHome"/>
   </div>
 </template>
 

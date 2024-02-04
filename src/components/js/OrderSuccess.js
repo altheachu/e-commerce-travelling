@@ -3,34 +3,43 @@
 export default ({
   data() {
     return {
-      labelPosition: 'right',
-      orderInfo: {
-        id: '',
-        date: '',
-        tamt: ''
-      },
+      labelPosition: 'left',
+      orderInfo: {},
       orderLabel: {
         id: 'Order Number',
         date: 'Order Date',
         tamt: 'Order Total Amount',
-        customerName: 'Your Name',
-        customerPhone: 'Your Phone Number',
+        customerName: 'Customer Name',
+        customerPhone: 'Customer Phone Number',
         orderDetail: 'Order Detail',
       },
-      orderDetailList:[{
-        name: 'test',
-      }]
+      orderdtlLabel : {
+        name: 'Product',
+        price: 'Unit Price',
+        qty: 'Quatity',
+        amt: 'Item Amount',
+      },
+      orderDetailList: [],
+      headerStyle: {
+        textAlign: 'center',
+      }
     };
   },
   methods: {
     tableRowClassName({row, rowIndex}) {
-      console.log(row);
-      if (rowIndex === 1) {
-        return 'warning-row';
-      } else if (rowIndex === 3) {
-        return 'success-row';
+      let resultClass = '';
+      if (rowIndex % 2 == 0){
+        resultClass = 'striped-row';
+      } else {
+        resultClass = '';
       }
-      return '';
-    }
+      if ( Number(row.amt) * Number(row.qty) >= 10000){
+        resultClass = 'warning-row';
+      }
+      return resultClass;
+    },
+    backToHome() {
+      this.$emit('backToHome', 'orderSuccess');
+    },
   },
 })

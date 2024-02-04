@@ -29,6 +29,14 @@ export default ({
       this.isShowOrder = isShow;
       this.isEnterPurchase = false;
       this.isShowProduct = false;
-    }
+    },
+    backToHome: function(sourceFrom) {
+      this.isShowOrder = false;
+      this.isEnterPurchase = false;
+      this.isShowProduct = false;
+      if (sourceFrom==='orderSuccess') {
+        this.isShowProduct = true;
+      }
+    },
   }
 })

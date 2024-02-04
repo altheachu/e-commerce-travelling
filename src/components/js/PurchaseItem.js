@@ -60,29 +60,29 @@ export default ({
       
     },
     buy: function() {
-      // this.$axios
-      //   .post("/customer/add", this.customerInfo)
-      //   .then((res)=>{
-      //     let orderInfo = {
-      //       customerId: res.data,
-      //       orderDate: new Date(),
-      //       orderAmt: this.orderAmount,
-      //       orderDetailList: [
-      //         {
-      //           productId: this.pdtInfo.id,
-      //           orderQty: this.qty
-      //         }
-      //       ]
-      //     };
-      //     this.$axios
-      //     .post("/order/add", orderInfo)
-      //       .then((res)=>{
-      //         console.log(res);
-      //       })
-      //       .catch((err)=> alert('fail to convey order info:' + err))
-      //   })
-      //   .catch((err) => alert('fail to record customer info:' + err));
-      this.$emit('showSuccessPage', true);
+      this.$axios
+        .post("/customer/add", this.customerInfo)
+        .then((res)=>{
+          let orderInfo = {
+            customerId: res.data,
+            orderDate: new Date(),
+            orderAmt: this.orderAmount,
+            orderDetailList: [
+              {
+                productId: this.pdtInfo.id,
+                orderQty: this.qty
+              }
+            ]
+          };
+          this.$axios
+          .post("/order/add", orderInfo)
+            .then((res)=>{
+              console.log(res);
+              this.$emit('showSuccessPage', true);
+            })
+            .catch((err)=> alert('fail to convey order info:' + err))
+        })
+        .catch((err) => alert('fail to record customer info:' + err));      
     },
   }
 })
