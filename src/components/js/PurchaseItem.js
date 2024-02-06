@@ -77,8 +77,14 @@ export default ({
           this.$axios
           .post("/order/add", orderInfo)
             .then((res)=>{
-              console.log(res);
-              this.$emit('showSuccessPage', true);
+              this.$axios
+              .get(`/customer/findById/${res.data.customerId}`)
+                .then((customerRes) => {
+                  res.data.customerName = customerRes.data.name;
+                  res.data.customerPhone = customerRes.data.phone;
+                  this.$emit('showSuccessPage', true, res.data);
+                })
+                .catch((err)=> alert('order success but fail to find customer info:' + err))
             })
             .catch((err)=> alert('fail to convey order info:' + err))
         })

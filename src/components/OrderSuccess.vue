@@ -5,7 +5,7 @@
         <img src = "@/assets/success.svg" class="img" alt="ORDER SUCCESS SVG"/>
       </div>
       <div>
-        <el-form :label-position="labelPosition" label-width="200px" :model="orderInfo">
+        <el-form :label-position="labelPosition" label-width="200px" :model="orderInfo" :key="reloadData">
           <el-form-item :label="orderLabel.id">
             <span>{{ orderInfo.id }}</span>
           </el-form-item>
@@ -13,7 +13,7 @@
             <span>{{ orderInfo.date }}</span>
           </el-form-item>
           <el-form-item :label="orderLabel.tamt">
-            <span>{{ orderInfo.type }}</span>
+            <span>{{ orderInfo.tamt }}</span>
           </el-form-item>
           <el-form-item :label="orderLabel.customerName">
             <span>{{ orderInfo.customerName }}</span>

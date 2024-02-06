@@ -1,10 +1,12 @@
-// import { priceFormat } from './Common.js';
+import { priceFormat } from './Common.js';
 
 export default ({
+  props:{
+    indexOrder: {},
+  },
   data() {
     return {
       labelPosition: 'left',
-      orderInfo: {},
       orderLabel: {
         id: 'Order Number',
         date: 'Order Date',
@@ -22,7 +24,10 @@ export default ({
       orderDetailList: [],
       headerStyle: {
         textAlign: 'center',
-      }
+      },
+      reloadData: false,
+      orderInfo: {
+      },
     };
   },
   methods: {
@@ -41,5 +46,14 @@ export default ({
     backToHome() {
       this.$emit('backToHome', 'orderSuccess');
     },
+    setOrderInfo(data) {
+      console.log(data);
+      this.orderInfo.id = data.orderId;
+      this.orderInfo.date = data.orderDate;
+      this.orderInfo.tamt = priceFormat(data.orderAmt);
+      this.orderInfo.customerName = data.customerName;
+      this.orderInfo.customerPhone = data.customerPhone;
+      this.reloadData = !this.reloadData;
+    }
   },
 })

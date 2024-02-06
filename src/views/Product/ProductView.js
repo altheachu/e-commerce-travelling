@@ -25,7 +25,8 @@ export default ({
         this.$refs.purchaseItem.pdtInfo = data;
       })
     },
-    showSuccessPage: function(isShow) {
+    showSuccessPage: function(isShow, data) {
+      this.$refs.orderSuccess.setOrderInfo(data);
       this.isShowOrder = isShow;
       this.isEnterPurchase = false;
       this.isShowProduct = false;
