@@ -20,7 +20,7 @@
             </div>
             <span class="pdt-name clearfix">{{ o.name }}</span>
             <div class="bottom clearfix">
-              <el-button type="primary" class="button" round @click="showOrderPage(o)">Buy Now</el-button>
+              <el-button type="primary" class="button" :disabled="o.disabled" round @click="showOrderPage(o)">Buy Now</el-button>
             </div>
           </div>
           </el-card>

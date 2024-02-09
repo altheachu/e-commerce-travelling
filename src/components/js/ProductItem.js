@@ -19,6 +19,9 @@ export default ({
           let newData = [];
           res.data.forEach((ele) => {
             ele.price = priceFormat(ele.price);
+            if(ele.stockQty <= 0){
+              ele.disabled = true;
+            }
             newData.push(ele);
           });
           this.productData = newData;

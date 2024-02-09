@@ -53,13 +53,30 @@ export default ({
   },
   methods: {
     goBack: function() {
+      this.$refs.ProductItem.getProducts();
       this.isEnterPurchase = false;
     },
     getDefaultAmt: function() {
       console.log('test', this.qty, this.pdtInfo)
-      
+    },
+    checkNumber: function() {
+      if (this.qty > this.pdtInfo.stockQty) {
+        this.$message({
+          message: '選擇數量大於庫存數量，請確認',
+          type: 'warning',
+          duration: 3000,
+        });
+      }
     },
     buy: function() {
+      if (this.qty > this.pdtInfo.stockQty) {
+        this.$message({
+          message: '購買數量大於庫存數量，不可交易，請確認',
+          type: 'warning',
+          duration: 3000,
+        });
+        return;
+      }
       this.$axios
         .post("/customer/add", this.customerInfo)
         .then((res)=>{

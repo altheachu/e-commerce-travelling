@@ -32,7 +32,7 @@
               <span class="pdt_label">Order Quantity</span>
             </span>
             <div>
-              <el-input-number v-model="qty" :min="1" label="描述文字"></el-input-number>
+              <el-input-number v-model="qty" :min="1" :step-strictly="true" @change="checkNumber"></el-input-number>
             </div>
           </el-form-item>
           <el-form-item>

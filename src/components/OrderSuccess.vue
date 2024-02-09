@@ -21,15 +21,15 @@
           <el-form-item :label="orderLabel.customerPhone">
             <span>{{ orderInfo.customerPhone }}</span>
           </el-form-item>
-          <div>
+          <div class="table-container">
               <el-table :data="orderDetailList" style="width: 100%" :border="true" :row-class-name="tableRowClassName" :header-cell-style="headerStyle">
-                <el-table-column prop="name" :label="orderdtlLabel.name" width="120">
+                <el-table-column prop="name" :label="orderdtlLabel.name" width="120" align="center">
                 </el-table-column>
-                <el-table-column prop="price" :label="orderdtlLabel.price" width="105">
+                <el-table-column prop="price" :label="orderdtlLabel.price" width="105" align="right">
                 </el-table-column>
-                <el-table-column prop="qty" :label="orderdtlLabel.qty" width="105">
+                <el-table-column prop="qty" :label="orderdtlLabel.qty" width="105" align="right">
                 </el-table-column>
-                <el-table-column prop="amt" :label="orderdtlLabel.amt" width="110">
+                <el-table-column prop="amt" :label="orderdtlLabel.amt" width="110" align="right">
                 </el-table-column>
               </el-table>
             </div>
@@ -73,6 +73,10 @@ export default ({
 
   .button-container {
     margin-top: 2vh;
+  }
+
+  ::v-deep .el-table .cell{
+    white-space: pre-line;
   }
 
   ::v-deep .el-table .striped-row {

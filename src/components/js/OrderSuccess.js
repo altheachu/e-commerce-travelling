@@ -46,13 +46,13 @@ export default ({
     backToHome() {
       this.$emit('backToHome', 'orderSuccess');
     },
-    setOrderInfo(data) {
-      console.log(data);
+    setOrderInfo(data, list) {
       this.orderInfo.id = data.orderId;
       this.orderInfo.date = data.orderDate;
       this.orderInfo.tamt = priceFormat(data.orderAmt);
       this.orderInfo.customerName = data.customerName;
       this.orderInfo.customerPhone = data.customerPhone;
+      this.orderDetailList = list; 
       this.reloadData = !this.reloadData;
     }
   },
