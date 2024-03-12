@@ -4,25 +4,13 @@ This project is the front-end of an e-commerce website in travelling industry. I
 # Usage
 
 After download the repository, you can install related module through the terminal by doing
-  
-	npm install
-
-<!--TODO-->
-
-# Start up
-
-You can start up this application through the terminal by doing
-
-	nodemon index.js
-
-If it is started up successfully, you can view the UI as the screenshot below shows at 
-
-	http://localhost:8080/
-
-## Project setup
 ```
-yarn install
+npm install
 ```
+
+# Project setup
+
+You can run this application through the terminal by doing the follows:
 
 ### Compiles and hot-reloads for development
 ```
@@ -39,8 +27,14 @@ yarn build
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# URL
+
+If it is run successfully, you can view the UI as the screenshot below shows at: 
+```
+http://localhost:8080/
+```	
+
+![project-ui!](src/assets/screenshot.jpg "Project UI")
 
 # Contact
 
