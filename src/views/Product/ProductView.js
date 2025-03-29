@@ -3,6 +3,7 @@ import { priceFormat } from "@/components/js/Common";
 export default ({
   created() {
     this.getProducts();
+    this.getWeatherHazardInfo();
   },
   mounted() {
   },
@@ -20,6 +21,12 @@ export default ({
         .get("/product")
         .then((res)=>{this.productData = res.data})
         .catch((err) => alert(err));
+    },
+    getWeatherHazardInfo: function() {
+      this.$axios
+      .get("/weather/hazard")
+      .then((res)=>{alert(res.data.success)})
+      .catch((err) => alert(err));
     },
     showOrderPage: function(data) {
       this.isEnterPurchase = true;
