@@ -52,7 +52,6 @@ export default ({
   },
   methods: {
     goBack: function() {
-      this.$refs.ProductItem.getProducts();
       this.isEnterPurchase = false;
     },
 
