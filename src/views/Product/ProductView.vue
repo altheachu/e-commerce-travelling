@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProductItem ref="ProductItem" v-show="!isEnterPurchase && isShowProduct" @showOrderPage="showOrderPage"/>
+    <ProductItem ref="ProductItem" v-show="!isEnterPurchase && isShowProduct" @showOrderPage="showOrderPage" :hazardInfos="hazardInfos"/>
     <PurchaseItem ref="purchaseItem" v-show="isEnterPurchase" :back-page.sync="isEnterPurchase" @showSuccessPage="showSuccessPage" />
     <OrderSuccess ref="orderSuccess" v-show="isShowOrder" @backToHome="backToHome"/>
   </div>

@@ -27,12 +27,10 @@
         </div>
       </el-col>
     </el-row>
-    <el-row type="flex" justify="left" class="row-style">
-      <el-col :span="4">~~~</el-col>
-      <el-col :span="16">
-        東北風影響，今（２９）日基隆北海岸及宜蘭山區有局部大雨發生的機率，請注意瞬間大雨，山區慎防坍方及落石。
+    <el-row>
+      <el-col :offset = "index > 0 ? 1 : 0" v-for="(o, index) in hazardInfos" :key="o.id">
+        {{ o }}
       </el-col>
-      <el-col :span="4">~~~</el-col>
     </el-row>
   </div>
 </template>

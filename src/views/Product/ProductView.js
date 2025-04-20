@@ -2,7 +2,7 @@ import { priceFormat } from "@/components/js/Common";
 
 export default ({
   created() {
-    this.getProducts();
+    //this.getProducts();
     this.getWeatherHazardInfo();
   },
   mounted() {
@@ -13,19 +13,20 @@ export default ({
       isShowProduct: true,
       isEnterPurchase: false,
       isShowOrder: false,
+      hazardInfos:[]
     }
   },
   methods: {
-    getProducts: function() {
-      this.$axios
-        .get("/product")
-        .then((res)=>{this.productData = res.data})
-        .catch((err) => alert(err));
-    },
+    // getProducts: function() {
+    //   this.$axios
+    //     .get("/product")
+    //     .then((res)=>{this.productData = res.data})
+    //     .catch((err) => alert(err));
+    // },
     getWeatherHazardInfo: function() {
       this.$axios
       .get("/weather/hazard")
-      .then((res)=>{alert(res.data.success)})
+      .then((res)=>{this.hazardInfos = res.data})
       .catch((err) => alert(err));
     },
     showOrderPage: function(data) {

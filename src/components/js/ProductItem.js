@@ -6,6 +6,9 @@ export default ({
   },
   mounted() {
   },
+  props:{
+    hazardInfos: [],
+  },
   data(){
     return {
       productData:[],
